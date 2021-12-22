@@ -27,3 +27,10 @@ services:
     App\ApiPlatform\DataProvider\PostCollectionDataProvider:
         arguments:
             $collectionExtensions: !tagged api_platform.doctrine.orm.query_extension.collection
+
+    api.post.date_filter:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments: [{date: ~}]
+        tags: [api_platform.filter]
+        autowire: false
+        autoconfigure: false

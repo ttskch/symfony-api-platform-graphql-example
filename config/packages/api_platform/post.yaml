@@ -1,4 +1,7 @@
 App\Entity\Post:
+  attributes:
+    filters:
+      - api.post.date_filter
   graphql:
      item_query: ~
      collection_query: ~
