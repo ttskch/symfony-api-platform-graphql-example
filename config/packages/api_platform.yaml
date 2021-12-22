@@ -7,3 +7,17 @@ api_platform:
         json: ['application/merge-patch+json']
     swagger:
         versions: [3]
+
+    defaults:
+        # disable REST
+        # @see https://github.com/api-platform/core/issues/2796#issuecomment-606729715
+        item_operations:
+            get:
+                controller: ApiPlatform\Core\Action\NotFoundAction
+                read: false
+                output: false
+        collection_operations:
+            get:
+                controller: ApiPlatform\Core\Action\NotFoundAction
+                read: false
+                output: false
