@@ -1,0 +1,17 @@
+App\Entity\Post:
+  graphql:
+     item_query: ~
+     collection_query: ~
+     create:
+       mutation: App\ApiPlatform\GraphQL\Resolver\Post\CreateResolver
+       args:
+         title:
+           type: String!
+         body:
+           type: String!
+         published:
+           type: Boolean
+         date:
+           type: String
+     update: ~
+     delete: ~
