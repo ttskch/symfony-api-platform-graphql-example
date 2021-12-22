@@ -34,3 +34,12 @@ services:
         tags: [api_platform.filter]
         autowire: false
         autoconfigure: false
+
+    api.post.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            $properties: {date: ~}
+            $orderParameterName: order
+        tags: [api_platform.filter]
+        autowire: false
+        autoconfigure: false
