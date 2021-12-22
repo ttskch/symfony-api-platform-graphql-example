@@ -3,12 +3,37 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use App\ApiPlatform\GraphQL\Resolver\Post\CreateResolver;
 use App\Repository\PostRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=PostRepository::class)
- * @ApiResource()
+ * @ApiResource(
+ *     graphql={
+ *         "item_query",
+ *         "collection_query",
+ *         "create"={
+ *             "mutation"=CreateResolver::class,
+ *             "args"={
+ *                 "title"={
+ *                     "type"="String!",
+ *                 },
+ *                 "body"={
+ *                     "type"="String!",
+ *                 },
+ *                 "published"={
+ *                     "type"="Boolean",
+ *                 },
+ *                 "date"={
+ *                     "type"="String",
+ *                 },
+ *             },
+ *         },
+ *         "update",
+ *         "delete",
+ *     }
+ * )
  */
 class Post
 {
